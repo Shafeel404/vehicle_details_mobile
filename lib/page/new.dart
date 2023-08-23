@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_details/http/cat_api.dart';
 import 'package:vehicle_details/http/vehicle_api.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:vehicle_details/page/rc_details.dart';
-import 'package:vehicle_details/page/result_page.dart';
 import 'package:vehicle_details/responses/cat_api_response.dart';
-import 'package:vehicle_details/responses/vehicle_details_response.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:vehicle_details/reusables/cardContainer.dart';
-import 'package:vehicle_details/reusables/flexible_space_bar.dart';
-import 'package:vehicle_details/reusables/reusableText.dart';
+import 'package:vehicle_details/responses/vehicle_details_response.dart';
+import 'package:vehicle_details/reusable/flexible_space_bar.dart';
+
+import '../reusable/card_container.dart';
 
 class NewPage extends StatefulWidget {
-  NewPage(this.vehicleNumber);
+  NewPage(this.vehicleNumber, {super.key});
   final vehicleNumber;
 
   @override
@@ -72,7 +68,7 @@ class _NewPageState extends State<NewPage> with SingleTickerProviderStateMixin {
         slivers: [
           SliverAppBar(
               leading: IconButton(
-                  icon: Icon(Icons.arrow_back),
+                  icon: const Icon(Icons.arrow_back),
                   onPressed: () {
                     Navigator.pop(context);
                   }),
@@ -81,22 +77,23 @@ class _NewPageState extends State<NewPage> with SingleTickerProviderStateMixin {
               pinned: true,
               floating: false,
               bottom: PreferredSize(
+                preferredSize: const Size.fromHeight(48.0 + 16.0),
                 child: TabBar(controller: _controller, tabs: [
-                  Tab(text: 'RC details'),
-                  Tab(text: 'Owner '),
+                  const Tab(text: 'RC details'),
+                  // const Tab(text: 'Owner '),
+                  Container(),
                   Container(),
                   Container()
                 ]),
-                preferredSize: Size.fromHeight(48.0 + 16.0),
               ),
               flexibleSpace: isLoading
-                  ? SpinKitSpinningLines(
+                  ? const SpinKitSpinningLines(
                       color: Colors.white,
                       size: 50.0,
                     )
                   : ReuseFlexibleSpaceBar(res: res),
               actions: [
-                IconButton(icon: Icon(Icons.more_vert), onPressed: () {})
+                IconButton(icon: const Icon(Icons.more_vert), onPressed: () {})
               ]),
           SliverToBoxAdapter(
             child: SingleChildScrollView(
@@ -105,7 +102,7 @@ class _NewPageState extends State<NewPage> with SingleTickerProviderStateMixin {
                 color: Colors.transparent,
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
@@ -160,7 +157,7 @@ class _NewPageState extends State<NewPage> with SingleTickerProviderStateMixin {
                     //     ),
                     //   ),
                     // )
-                    cardContainer(res),
+                    CardContainer(res),
                   ],
                 ),
               ),

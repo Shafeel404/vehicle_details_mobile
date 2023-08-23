@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_details/constants/constants.dart';
 import 'package:vehicle_details/responses/cat_api_response.dart';
-import 'package:vehicle_details/reusables/reusableText.dart';
-import 'package:vehicle_details/reusables/reusable_expansion_tile.dart';
+import 'package:vehicle_details/responses/vehicle_details_response.dart';
+import 'package:vehicle_details/reusable/reusableText.dart';
+import 'package:vehicle_details/reusable/reusable_expansion_tile.dart';
 
-class cardContainer extends StatelessWidget {
-  cardContainer(this.res);
+class CardContainer extends StatelessWidget {
+  CardContainer(this.res, {super.key});
   CatApiResponse res;
   @override
   Widget build(BuildContext context) {
@@ -21,7 +22,7 @@ class cardContainer extends StatelessWidget {
           )
         ],
       ),
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       child: Column(
         children: [
           ReusableExpansionTile(

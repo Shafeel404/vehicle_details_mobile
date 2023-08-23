@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_details/constants/constants.dart';
-import 'package:vehicle_details/page/sign_up_page.dart';
-import 'package:vehicle_details/sub_page/login_form.dart';
+import 'package:vehicle_details/page/login_page.dart';
+import 'package:vehicle_details/sub_page/sign_up_form.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
+import '../sub_page/login_form.dart';
+
+class SignUpPage extends StatelessWidget {
+  const SignUpPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -27,23 +29,16 @@ class LoginPage extends StatelessWidget {
                           const BorderSide(color: Colors.white, width: 2.0)),
                     ),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const SignUpPage();
-                          },
-                        ),
-                      );
+                      Navigator.pop(context);
                     },
-                    child: const Text(
-                      "Sign up",
+                    child: Text(
+                      "Login",
                       style: TextStyle(color: Colors.white),
                     ),
                   ),
                 ),
               )),
-              const Expanded(flex: 9, child: LoginForm()),
+              const Expanded(flex: 9, child: SignUpForm()),
             ],
           ),
         ),

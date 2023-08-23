@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:vehicle_details/responses/cat_api_response.dart';
+import 'package:vehicle_details/responses/vehicle_details_response.dart';
 
 class ReuseFlexibleSpaceBar extends StatelessWidget {
   ReuseFlexibleSpaceBar({required this.res});

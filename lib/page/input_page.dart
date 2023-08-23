@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_details/constants/constants.dart';
 import 'package:vehicle_details/converter/uppercase.dart';
-import 'package:vehicle_details/page/result_page.dart';
 
 import 'new.dart';
 
 class InputPage extends StatefulWidget {
-  InputPage(this.token) {}
+  InputPage(this.token);
   String token;
   @override
   State<InputPage> createState() => _InputPageState();
@@ -30,7 +29,7 @@ class _InputPageState extends State<InputPage> {
                   maxLength: 12,
                   decoration: InputDecoration(
                     hintText: 'Enter vehicle Number ',
-                    icon: kIcon,
+                    icon: kCarIcon,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10),
                     ),
@@ -47,6 +46,9 @@ class _InputPageState extends State<InputPage> {
                   child: TextButton(
                     onPressed: isButtonEnabled
                         ? () {
+                            if (FocusScope.of(context).hasFocus) {
+                              FocusScope.of(context).unfocus();
+                            }
                             Navigator.push(
                               context,
                               MaterialPageRoute(
