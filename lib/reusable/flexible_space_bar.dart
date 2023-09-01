@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:vehicle_details/responses/cat_api_response.dart';
+import 'package:vehicle_details/responses/new_vehicle_response.dart';
 import 'package:vehicle_details/responses/vehicle_details_response.dart';
 
 class ReuseFlexibleSpaceBar extends StatelessWidget {
   ReuseFlexibleSpaceBar({required this.res});
 
-  CatApiResponse res;
+  NewVehicleDetailsResponse res;
   @override
   Widget build(BuildContext context) {
     return FlexibleSpaceBar(
@@ -30,7 +31,7 @@ class ReuseFlexibleSpaceBar extends StatelessWidget {
             Padding(
               padding: EdgeInsets.only(right: 10),
               child: Text(
-                res.registrationNumber,
+                res.licensePlate,
                 style: TextStyle(
                   color: Colors.black,
                 ),

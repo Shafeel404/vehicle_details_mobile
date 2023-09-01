@@ -24,8 +24,8 @@ class _SignUpFormState extends State<SignUpForm> {
   var response = "";
   var error = "";
   void _register() async {
-    DialogBox(context).showTempDialogBox();
     if (_formKey.currentState!.validate()) {
+      DialogBox(context).showTempDialogBox();
       String email = _emailController.text;
       String password = _passwordController.text;
       String name = _nameController.text;

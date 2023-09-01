@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:vehicle_details/constants/constants.dart';
 import 'package:vehicle_details/responses/cat_api_response.dart';
+import 'package:vehicle_details/responses/new_vehicle_response.dart';
 import 'package:vehicle_details/responses/vehicle_details_response.dart';
 import 'package:vehicle_details/reusable/reusableText.dart';
 import 'package:vehicle_details/reusable/reusable_expansion_tile.dart';
 
 class CardContainer extends StatelessWidget {
   CardContainer(this.res, {super.key});
-  CatApiResponse res;
+  NewVehicleDetailsResponse res;
   @override
   Widget build(BuildContext context) {
     return Container(

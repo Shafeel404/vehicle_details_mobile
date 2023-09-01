@@ -3,6 +3,7 @@ import 'package:vehicle_details/http/cat_api.dart';
 import 'package:vehicle_details/http/vehicle_api.dart';
 import 'package:vehicle_details/responses/cat_api_response.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:vehicle_details/responses/new_vehicle_response.dart';
 import 'package:vehicle_details/responses/vehicle_details_response.dart';
 import 'package:vehicle_details/reusable/flexible_space_bar.dart';
 
@@ -21,10 +22,8 @@ class _NewPageState extends State<NewPage> with SingleTickerProviderStateMixin {
   String vehicleData = '';
   String ownerName = '';
   bool isLoading = true;
-  CatApiResponse res = CatApiResponse(
+  NewVehicleDetailsResponse res = NewVehicleDetailsResponse(
       seatingCapacity: '',
-      registrationDate: '',
-      registeredPlace: '',
       manufacturerModel: '',
       manufacturer: '',
       isFinanced: false,
@@ -32,21 +31,22 @@ class _NewPageState extends State<NewPage> with SingleTickerProviderStateMixin {
       insurancePolicyNo: '',
       insuranceName: '',
       fuelType: '',
-      fitnessUpTo: '',
       financier: '',
       colour: '',
-      registrationNumber: '',
+      licensePlate: '',
       chassisNumber: '',
       engineNumber: '',
       fatherName: '',
       address: '',
-      ownerName: '');
+      ownerName: '',
+      vehicleId: '');
 
   void _getVehicleDetail(String vehicleNumber) async {
     setState(() {
       isLoading = true;
     });
-    CatApiResponse? apiResponse = await CatApi.getVehicleDetail(vehicleNumber);
+    NewVehicleDetailsResponse? apiResponse =
+        await VehicleApi.getVehicleDetail(vehicleNumber);
     setState(() {
       isLoading = false;
       res = apiResponse!;
